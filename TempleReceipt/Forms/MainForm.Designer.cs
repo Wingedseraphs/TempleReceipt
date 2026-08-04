@@ -148,6 +148,7 @@
             this.txtReceiptNo.Name = "txtReceiptNo";
             this.txtReceiptNo.Size = new System.Drawing.Size(119, 30);
             this.txtReceiptNo.TabIndex = 4;
+            this.txtReceiptNo.TextChanged += new System.EventHandler(this.Input_TextChanged);
             // 
             // txtOperator
             // 
@@ -155,6 +156,7 @@
             this.txtOperator.Name = "txtOperator";
             this.txtOperator.Size = new System.Drawing.Size(119, 30);
             this.txtOperator.TabIndex = 5;
+            this.txtOperator.TextChanged += new System.EventHandler(this.Input_TextChanged);
             // 
             // txtName
             // 
@@ -162,6 +164,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(119, 30);
             this.txtName.TabIndex = 5;
+            this.txtName.TextChanged += new System.EventHandler(this.Input_TextChanged);
             // 
             // txtAddress
             // 
@@ -170,6 +173,7 @@
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(294, 60);
             this.txtAddress.TabIndex = 6;
+            this.txtAddress.TextChanged += new System.EventHandler(this.Input_TextChanged);
             // 
             // dgvItems
             // 
