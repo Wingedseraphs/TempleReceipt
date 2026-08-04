@@ -58,7 +58,6 @@ namespace TempleReceipt.Forms
         {
             _receipt = new Receipt();
         }
-       
         private void UpdateReceipt()
         {
             _receipt.ReceiptNo = txtReceiptNo.Text.Trim();
@@ -68,21 +67,31 @@ namespace TempleReceipt.Forms
 
             RefreshReceiptItems();
         }
-
-
         private void Input_TextChanged(object sender, EventArgs e)
         {
-            UpdateReceipt();
-            Text = _receipt.Name;
             RefreshAll();
         }
-        private void RefreshReceipt()
+        private void dgvItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            UpdateReceipt();
-            RefreshSummary();
-            RefreshPreview();
-        }
+            if (e.RowIndex < 0)
+                return;
 
+            if (dgvItems.Columns[e.ColumnIndex].Name == "colDelete")
+            {
+                dgvItems.Rows.RemoveAt(e.RowIndex);
+
+                RefreshAll();
+            }
+        }
+        private void btnAddItem_Click(object sender, EventArgs e)
+        {
+            if (cboDonationItem.SelectedIndex < 0)
+                return;
+
+            dgvItems.Rows.Add(
+                cboDonationItem.Text,
+                0);
+        }
         private void RefreshReceiptItems()
         {
             _receipt.Items.Clear();
@@ -138,7 +147,7 @@ namespace TempleReceipt.Forms
 
         private void dgvItems_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
-            RefreshReceipt();
+            RefreshAll();
         }
         private void dgvItems_EditingControlShowing(object sender,DataGridViewEditingControlShowingEventArgs e)
         {
