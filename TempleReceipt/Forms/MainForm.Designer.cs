@@ -1,6 +1,6 @@
 ﻿namespace TempleReceipt.Forms
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// 設計工具所需的變數。

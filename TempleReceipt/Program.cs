@@ -16,7 +16,7 @@ namespace TempleReceipt
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TempleReceipt.Forms.Form1());
+            Application.Run(new TempleReceipt.Forms.MainForm());
         }
     }
 }
