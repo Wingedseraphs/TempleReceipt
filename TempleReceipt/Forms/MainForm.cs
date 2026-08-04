@@ -20,6 +20,7 @@ namespace TempleReceipt.Forms
         private Receipt _receipt;
         //private ReceiptService _receiptService = new ReceiptService();
         private readonly ChineseMoneyService _moneyService = new ChineseMoneyService();
+        private readonly DonationItemService _donationService = new DonationItemService();
         public MainForm()
         {
             InitializeComponent();
@@ -29,6 +30,8 @@ namespace TempleReceipt.Forms
         private void MainForm_Load(object sender, EventArgs e)
         {
             InitializeDataGridView();
+
+            LoadDonationItems();
         }
         private void InitializeDataGridView()
         {
@@ -88,9 +91,18 @@ namespace TempleReceipt.Forms
             if (cboDonationItem.SelectedIndex < 0)
                 return;
 
+            DonationItem item = (DonationItem)cboDonationItem.SelectedItem;
+
             dgvItems.Rows.Add(
-                cboDonationItem.Text,
-                0);
+                item.Name,
+                item.DefaultAmount);
+        }
+        private void LoadDonationItems()
+        {
+            cboDonationItem.DataSource =
+                _donationService.GetDefaultItems();
+
+            cboDonationItem.DisplayMember = "Name";
         }
         private void RefreshReceiptItems()
         {

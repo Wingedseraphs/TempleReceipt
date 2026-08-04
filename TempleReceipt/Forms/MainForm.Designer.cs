@@ -367,11 +367,9 @@
             this.cboDonationItem.FormattingEnabled = true;
             this.cboDonationItem.Items.AddRange(new object[] {
             "香油錢",
-            "祭改",
-            "補運",
-            "",
+            "祭改補運",
             "普渡法會",
-            "捐米(1斤60)"});
+            "捐米(1斤60元)"});
             this.cboDonationItem.Location = new System.Drawing.Point(59, 31);
             this.cboDonationItem.Name = "cboDonationItem";
             this.cboDonationItem.Size = new System.Drawing.Size(191, 30);
