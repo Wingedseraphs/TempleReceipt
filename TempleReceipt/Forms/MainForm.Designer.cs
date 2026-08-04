@@ -30,7 +30,7 @@
         {
             this.grpReceipt = new System.Windows.Forms.GroupBox();
             this.lblDaoDate = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lalTimeNow = new System.Windows.Forms.Label();
             this.lblOperatorTitle = new System.Windows.Forms.Label();
             this.lblReceiptNoTitle = new System.Windows.Forms.Label();
             this.txtOperator = new System.Windows.Forms.TextBox();
@@ -73,7 +73,7 @@
             // grpReceipt
             // 
             this.grpReceipt.Controls.Add(this.lblDaoDate);
-            this.grpReceipt.Controls.Add(this.label6);
+            this.grpReceipt.Controls.Add(this.lalTimeNow);
             this.grpReceipt.Controls.Add(this.lblOperatorTitle);
             this.grpReceipt.Controls.Add(this.lblReceiptNoTitle);
             this.grpReceipt.Controls.Add(this.txtOperator);
@@ -96,14 +96,14 @@
             this.lblDaoDate.TabIndex = 9;
             this.lblDaoDate.Text = "道曆";
             // 
-            // label6
+            // lalTimeNow
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(212, 26);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 22);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "時間";
+            this.lalTimeNow.AutoSize = true;
+            this.lalTimeNow.Location = new System.Drawing.Point(212, 26);
+            this.lalTimeNow.Name = "lalTimeNow";
+            this.lalTimeNow.Size = new System.Drawing.Size(44, 22);
+            this.lalTimeNow.TabIndex = 8;
+            this.lalTimeNow.Text = "時間";
             // 
             // lblOperatorTitle
             // 
@@ -427,7 +427,7 @@
         private System.Windows.Forms.Label lblOperatorTitle;
         private System.Windows.Forms.Label lblReceiptNoTitle;
         private System.Windows.Forms.Label lblDaoDate;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lalTimeNow;
         private System.Windows.Forms.Label lblAddressTitle;
         private System.Windows.Forms.Label lblNameTitle;
         private System.Windows.Forms.Label lblTotal;

@@ -19,11 +19,40 @@ namespace TempleReceipt.Forms
         /// </summary>
         private Receipt _receipt;
         //private ReceiptService _receiptService = new ReceiptService();
+        private readonly ChineseMoneyService _moneyService = new ChineseMoneyService();
         public MainForm()
         {
             InitializeComponent();
 
             InitializeReceipt();
+        }
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            InitializeDataGridView();
+        }
+        private void InitializeDataGridView()
+        {
+            dgvItems.AllowUserToAddRows = true;
+            dgvItems.AllowUserToDeleteRows = true;
+            dgvItems.AllowUserToResizeRows = false;
+
+            dgvItems.RowHeadersVisible = false;
+            dgvItems.AutoGenerateColumns = false;
+
+            dgvItems.SelectionMode = DataGridViewSelectionMode.CellSelect;
+
+            dgvItems.Columns["colItem"].AutoSizeMode =
+                DataGridViewAutoSizeColumnMode.Fill;
+
+            dgvItems.Columns["colAmount"].Width = 120;
+
+            dgvItems.Columns["colAmount"].DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleRight;
+
+            dgvItems.Columns["colAmount"].HeaderCell.Style.Alignment =
+                DataGridViewContentAlignment.MiddleCenter;
+
+            dgvItems.Columns["colAmount"].DefaultCellStyle.Format = "N0";
         }
         private void InitializeReceipt()
         {
@@ -46,12 +75,6 @@ namespace TempleReceipt.Forms
             UpdateReceipt();
             Text = _receipt.Name;
             RefreshAll();
-        }
-        private void dgvItems_Update(object sender, EventArgs e)
-        {
-            UpdateReceipt();
-
-            RefreshSummary();
         }
         private void RefreshReceipt()
         {
@@ -86,6 +109,9 @@ namespace TempleReceipt.Forms
         private void RefreshSummary()
         {
             lblTotal.Text = $"{_receipt.TotalAmount:N0} 元";
+
+            lblChineseMoney.Text =
+                _moneyService.Convert(_receipt.TotalAmount);
         }
 
         private void RefreshAll()
@@ -93,6 +119,11 @@ namespace TempleReceipt.Forms
             dgvItems.EndEdit();
             UpdateReceipt();
             RefreshSummary();
+            RefreshPreview();
+        }
+        private void RefreshPreview()
+        {
+
         }
 
         private void dgvItems_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -105,15 +136,28 @@ namespace TempleReceipt.Forms
             RefreshAll();
         }
 
-        private void RefreshPreview()
-        {
-
-        }
-
         private void dgvItems_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
             RefreshReceipt();
         }
-
+        private void dgvItems_EditingControlShowing(object sender,DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (dgvItems.CurrentCell.ColumnIndex == colAmount.Index)
+            {
+                if (e.Control is TextBox tb)
+                {
+                    tb.KeyPress -= Amount_KeyPress;
+                    tb.KeyPress += Amount_KeyPress;
+                }
+            }
+        }
+        private void Amount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) &&
+                !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
