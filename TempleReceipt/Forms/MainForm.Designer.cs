@@ -41,7 +41,12 @@
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.grpItems = new System.Windows.Forms.GroupBox();
+            this.btnAddItem = new System.Windows.Forms.Button();
+            this.cboDonationItem = new System.Windows.Forms.ComboBox();
             this.dgvItems = new System.Windows.Forms.DataGridView();
+            this.colItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.grpAmount = new System.Windows.Forms.GroupBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblChineseMoney = new System.Windows.Forms.Label();
@@ -54,11 +59,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.cboDonationItem = new System.Windows.Forms.ComboBox();
-            this.btnAddItem = new System.Windows.Forms.Button();
-            this.colItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.grpReceipt.SuspendLayout();
             this.grpDonor.SuspendLayout();
             this.grpItems.SuspendLayout();
@@ -206,6 +206,29 @@
             this.grpItems.TabStop = false;
             this.grpItems.Text = "功德項目";
             // 
+            // btnAddItem
+            // 
+            this.btnAddItem.Location = new System.Drawing.Point(269, 31);
+            this.btnAddItem.Name = "btnAddItem";
+            this.btnAddItem.Size = new System.Drawing.Size(84, 30);
+            this.btnAddItem.TabIndex = 2;
+            this.btnAddItem.Text = "新增";
+            this.btnAddItem.UseVisualStyleBackColor = true;
+            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
+            // 
+            // cboDonationItem
+            // 
+            this.cboDonationItem.FormattingEnabled = true;
+            this.cboDonationItem.Items.AddRange(new object[] {
+            "香油錢",
+            "祭改補運",
+            "普渡法會",
+            "捐米(1斤60元)"});
+            this.cboDonationItem.Location = new System.Drawing.Point(59, 31);
+            this.cboDonationItem.Name = "cboDonationItem";
+            this.cboDonationItem.Size = new System.Drawing.Size(191, 30);
+            this.cboDonationItem.TabIndex = 1;
+            // 
             // dgvItems
             // 
             this.dgvItems.AllowUserToAddRows = false;
@@ -220,8 +243,32 @@
             this.dgvItems.RowTemplate.Height = 27;
             this.dgvItems.Size = new System.Drawing.Size(390, 281);
             this.dgvItems.TabIndex = 0;
+            this.dgvItems.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvItems_CellContentClick);
             this.dgvItems.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvItems_CellEndEdit);
             this.dgvItems.UserDeletedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvItems_UserDeletedRow);
+            // 
+            // colItem
+            // 
+            this.colItem.HeaderText = "功德項目";
+            this.colItem.MinimumWidth = 6;
+            this.colItem.Name = "colItem";
+            this.colItem.Width = 125;
+            // 
+            // colAmount
+            // 
+            this.colAmount.HeaderText = "金額";
+            this.colAmount.MinimumWidth = 6;
+            this.colAmount.Name = "colAmount";
+            this.colAmount.Width = 125;
+            // 
+            // colDelete
+            // 
+            this.colDelete.HeaderText = "刪除";
+            this.colDelete.MinimumWidth = 6;
+            this.colDelete.Name = "colDelete";
+            this.colDelete.Text = "刪除";
+            this.colDelete.UseColumnTextForButtonValue = true;
+            this.colDelete.Width = 125;
             // 
             // grpAmount
             // 
@@ -361,52 +408,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(401, 874);
             this.tableLayoutPanel1.TabIndex = 4;
-            // 
-            // cboDonationItem
-            // 
-            this.cboDonationItem.FormattingEnabled = true;
-            this.cboDonationItem.Items.AddRange(new object[] {
-            "香油錢",
-            "祭改補運",
-            "普渡法會",
-            "捐米(1斤60元)"});
-            this.cboDonationItem.Location = new System.Drawing.Point(59, 31);
-            this.cboDonationItem.Name = "cboDonationItem";
-            this.cboDonationItem.Size = new System.Drawing.Size(191, 30);
-            this.cboDonationItem.TabIndex = 1;
-            // 
-            // btnAddItem
-            // 
-            this.btnAddItem.Location = new System.Drawing.Point(269, 31);
-            this.btnAddItem.Name = "btnAddItem";
-            this.btnAddItem.Size = new System.Drawing.Size(84, 30);
-            this.btnAddItem.TabIndex = 2;
-            this.btnAddItem.Text = "新增";
-            this.btnAddItem.UseVisualStyleBackColor = true;
-            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
-            // 
-            // colItem
-            // 
-            this.colItem.HeaderText = "功德項目";
-            this.colItem.MinimumWidth = 6;
-            this.colItem.Name = "colItem";
-            this.colItem.Width = 125;
-            // 
-            // colAmount
-            // 
-            this.colAmount.HeaderText = "金額";
-            this.colAmount.MinimumWidth = 6;
-            this.colAmount.Name = "colAmount";
-            this.colAmount.Width = 125;
-            // 
-            // colDelete
-            // 
-            this.colDelete.HeaderText = "刪除";
-            this.colDelete.MinimumWidth = 6;
-            this.colDelete.Name = "colDelete";
-            this.colDelete.Text = "刪除";
-            this.colDelete.UseColumnTextForButtonValue = true;
-            this.colDelete.Width = 125;
             // 
             // MainForm
             // 

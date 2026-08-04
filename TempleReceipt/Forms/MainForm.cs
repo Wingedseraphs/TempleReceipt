@@ -93,9 +93,9 @@ namespace TempleReceipt.Forms
 
             DonationItem item = (DonationItem)cboDonationItem.SelectedItem;
 
-            dgvItems.Rows.Add(
-                item.Name,
-                item.DefaultAmount);
+            dgvItems.Rows.Add(item.Name, item.DefaultAmount);
+
+            RefreshAll();
         }
         private void LoadDonationItems()
         {
