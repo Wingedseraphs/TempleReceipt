@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TempleReceipt.Models
+﻿namespace TempleReceipt.Models
 {
-    internal class ReceiptItem
+    /// <summary>
+    /// 功德項目
+    /// </summary>
+    public class ReceiptItem
     {
+        /// <summary>項目名稱</summary>
+        public string ItemName { get; set; }
+
+        /// <summary>金額</summary>
+        public decimal Amount { get; set; }
     }
 }
