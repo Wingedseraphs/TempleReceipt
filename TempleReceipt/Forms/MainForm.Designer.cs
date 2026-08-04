@@ -31,21 +31,23 @@
             this.grpReceipt = new System.Windows.Forms.GroupBox();
             this.lblDaoDate = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblOperatorTitle = new System.Windows.Forms.Label();
+            this.lblReceiptNoTitle = new System.Windows.Forms.Label();
             this.txtOperator = new System.Windows.Forms.TextBox();
             this.txtReceiptNo = new System.Windows.Forms.TextBox();
             this.grpDonor = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblAddressTitle = new System.Windows.Forms.Label();
+            this.lblNameTitle = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.grpItems = new System.Windows.Forms.GroupBox();
             this.dgvItems = new System.Windows.Forms.DataGridView();
+            this.colItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpAmount = new System.Windows.Forms.GroupBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblChineseMoney = new System.Windows.Forms.Label();
-            this.lbl = new System.Windows.Forms.Label();
+            this.lblTotalTitle = new System.Windows.Forms.Label();
             this.grpAction = new System.Windows.Forms.GroupBox();
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnPreview = new System.Windows.Forms.Button();
@@ -54,8 +56,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.colItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpReceipt.SuspendLayout();
             this.grpDonor.SuspendLayout();
             this.grpItems.SuspendLayout();
@@ -74,8 +74,8 @@
             // 
             this.grpReceipt.Controls.Add(this.lblDaoDate);
             this.grpReceipt.Controls.Add(this.label6);
-            this.grpReceipt.Controls.Add(this.label3);
-            this.grpReceipt.Controls.Add(this.label2);
+            this.grpReceipt.Controls.Add(this.lblOperatorTitle);
+            this.grpReceipt.Controls.Add(this.lblReceiptNoTitle);
             this.grpReceipt.Controls.Add(this.txtOperator);
             this.grpReceipt.Controls.Add(this.txtReceiptNo);
             this.grpReceipt.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -105,23 +105,23 @@
             this.label6.TabIndex = 8;
             this.label6.Text = "時間";
             // 
-            // label3
+            // lblOperatorTitle
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 59);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 22);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "經手人";
+            this.lblOperatorTitle.AutoSize = true;
+            this.lblOperatorTitle.Location = new System.Drawing.Point(3, 59);
+            this.lblOperatorTitle.Name = "lblOperatorTitle";
+            this.lblOperatorTitle.Size = new System.Drawing.Size(61, 22);
+            this.lblOperatorTitle.TabIndex = 7;
+            this.lblOperatorTitle.Text = "經手人";
             // 
-            // label2
+            // lblReceiptNoTitle
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 22);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "收據編號";
+            this.lblReceiptNoTitle.AutoSize = true;
+            this.lblReceiptNoTitle.Location = new System.Drawing.Point(3, 28);
+            this.lblReceiptNoTitle.Name = "lblReceiptNoTitle";
+            this.lblReceiptNoTitle.Size = new System.Drawing.Size(78, 22);
+            this.lblReceiptNoTitle.TabIndex = 6;
+            this.lblReceiptNoTitle.Text = "收據編號";
             // 
             // txtOperator
             // 
@@ -141,8 +141,8 @@
             // 
             // grpDonor
             // 
-            this.grpDonor.Controls.Add(this.label5);
-            this.grpDonor.Controls.Add(this.label4);
+            this.grpDonor.Controls.Add(this.lblAddressTitle);
+            this.grpDonor.Controls.Add(this.lblNameTitle);
             this.grpDonor.Controls.Add(this.txtAddress);
             this.grpDonor.Controls.Add(this.txtName);
             this.grpDonor.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -154,23 +154,23 @@
             this.grpDonor.TabStop = false;
             this.grpDonor.Text = "信徒資料";
             // 
-            // label5
+            // lblAddressTitle
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 68);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 22);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "地址";
+            this.lblAddressTitle.AutoSize = true;
+            this.lblAddressTitle.Location = new System.Drawing.Point(9, 68);
+            this.lblAddressTitle.Name = "lblAddressTitle";
+            this.lblAddressTitle.Size = new System.Drawing.Size(44, 22);
+            this.lblAddressTitle.TabIndex = 8;
+            this.lblAddressTitle.Text = "地址";
             // 
-            // label4
+            // lblNameTitle
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 28);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 22);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "姓名";
+            this.lblNameTitle.AutoSize = true;
+            this.lblNameTitle.Location = new System.Drawing.Point(9, 28);
+            this.lblNameTitle.Name = "lblNameTitle";
+            this.lblNameTitle.Size = new System.Drawing.Size(44, 22);
+            this.lblNameTitle.TabIndex = 7;
+            this.lblNameTitle.Text = "姓名";
             // 
             // txtAddress
             // 
@@ -213,12 +213,28 @@
             this.dgvItems.RowTemplate.Height = 27;
             this.dgvItems.Size = new System.Drawing.Size(305, 330);
             this.dgvItems.TabIndex = 0;
+            this.dgvItems.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvItems_CellEndEdit);
+            this.dgvItems.UserDeletedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvItems_UserDeletedRow);
+            // 
+            // colItem
+            // 
+            this.colItem.HeaderText = "功德項目";
+            this.colItem.MinimumWidth = 6;
+            this.colItem.Name = "colItem";
+            this.colItem.Width = 125;
+            // 
+            // colAmount
+            // 
+            this.colAmount.HeaderText = "金額";
+            this.colAmount.MinimumWidth = 6;
+            this.colAmount.Name = "colAmount";
+            this.colAmount.Width = 125;
             // 
             // grpAmount
             // 
             this.grpAmount.Controls.Add(this.lblTotal);
             this.grpAmount.Controls.Add(this.lblChineseMoney);
-            this.grpAmount.Controls.Add(this.lbl);
+            this.grpAmount.Controls.Add(this.lblTotalTitle);
             this.grpAmount.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpAmount.Location = new System.Drawing.Point(5, 659);
             this.grpAmount.Margin = new System.Windows.Forms.Padding(5);
@@ -246,14 +262,14 @@
             this.lblChineseMoney.TabIndex = 1;
             this.lblChineseMoney.Text = "零元整";
             // 
-            // lbl
+            // lblTotalTitle
             // 
-            this.lbl.AutoSize = true;
-            this.lbl.Location = new System.Drawing.Point(8, 26);
-            this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(73, 22);
-            this.lbl.TabIndex = 0;
-            this.lbl.Text = "總金額 : ";
+            this.lblTotalTitle.AutoSize = true;
+            this.lblTotalTitle.Location = new System.Drawing.Point(8, 26);
+            this.lblTotalTitle.Name = "lblTotalTitle";
+            this.lblTotalTitle.Size = new System.Drawing.Size(73, 22);
+            this.lblTotalTitle.TabIndex = 0;
+            this.lblTotalTitle.Text = "總金額 : ";
             // 
             // grpAction
             // 
@@ -353,20 +369,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(401, 874);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
-            // colItem
-            // 
-            this.colItem.HeaderText = "功德項目";
-            this.colItem.MinimumWidth = 6;
-            this.colItem.Name = "colItem";
-            this.colItem.Width = 125;
-            // 
-            // colAmount
-            // 
-            this.colAmount.HeaderText = "金額";
-            this.colAmount.MinimumWidth = 6;
-            this.colAmount.Name = "colAmount";
-            this.colAmount.Width = 125;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
@@ -414,7 +416,7 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.DataGridView dgvItems;
         private System.Windows.Forms.Label lblChineseMoney;
-        private System.Windows.Forms.Label lbl;
+        private System.Windows.Forms.Label lblTotalTitle;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Button btnPreview;
         private System.Windows.Forms.Button btnClear;
@@ -422,12 +424,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblOperatorTitle;
+        private System.Windows.Forms.Label lblReceiptNoTitle;
         private System.Windows.Forms.Label lblDaoDate;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblAddressTitle;
+        private System.Windows.Forms.Label lblNameTitle;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn colItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAmount;
