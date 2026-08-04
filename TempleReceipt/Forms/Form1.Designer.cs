@@ -1,4 +1,4 @@
-﻿namespace TempleReceipt
+﻿namespace TempleReceipt.Forms
 {
     partial class Form1
     {
