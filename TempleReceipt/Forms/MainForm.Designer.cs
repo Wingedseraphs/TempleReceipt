@@ -29,39 +29,39 @@
         private void InitializeComponent()
         {
             this.grpReceipt = new System.Windows.Forms.GroupBox();
-            this.grpDonor = new System.Windows.Forms.GroupBox();
-            this.grpItems = new System.Windows.Forms.GroupBox();
-            this.grpAmount = new System.Windows.Forms.GroupBox();
-            this.grpAction = new System.Windows.Forms.GroupBox();
-            this.txtReceiptNo = new System.Windows.Forms.TextBox();
+            this.lblDaoDate = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.txtOperator = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtReceiptNo = new System.Windows.Forms.TextBox();
+            this.grpDonor = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.grpItems = new System.Windows.Forms.GroupBox();
             this.dgvItems = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grpAmount = new System.Windows.Forms.GroupBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblChineseMoney = new System.Windows.Forms.Label();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnPreview = new System.Windows.Forms.Button();
+            this.lbl = new System.Windows.Forms.Label();
+            this.grpAction = new System.Windows.Forms.GroupBox();
             this.btnPrint = new System.Windows.Forms.Button();
+            this.btnPreview = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.pnlPreview = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.colItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpReceipt.SuspendLayout();
             this.grpDonor.SuspendLayout();
             this.grpItems.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             this.grpAmount.SuspendLayout();
             this.grpAction.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             this.pnlPreview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -72,7 +72,7 @@
             // 
             // grpReceipt
             // 
-            this.grpReceipt.Controls.Add(this.label7);
+            this.grpReceipt.Controls.Add(this.lblDaoDate);
             this.grpReceipt.Controls.Add(this.label6);
             this.grpReceipt.Controls.Add(this.label3);
             this.grpReceipt.Controls.Add(this.label2);
@@ -82,10 +82,62 @@
             this.grpReceipt.Location = new System.Drawing.Point(5, 5);
             this.grpReceipt.Margin = new System.Windows.Forms.Padding(5);
             this.grpReceipt.Name = "grpReceipt";
-            this.grpReceipt.Size = new System.Drawing.Size(392, 112);
+            this.grpReceipt.Size = new System.Drawing.Size(391, 112);
             this.grpReceipt.TabIndex = 0;
             this.grpReceipt.TabStop = false;
             this.grpReceipt.Text = "收據資訊";
+            // 
+            // lblDaoDate
+            // 
+            this.lblDaoDate.AutoSize = true;
+            this.lblDaoDate.Location = new System.Drawing.Point(212, 59);
+            this.lblDaoDate.Name = "lblDaoDate";
+            this.lblDaoDate.Size = new System.Drawing.Size(44, 22);
+            this.lblDaoDate.TabIndex = 9;
+            this.lblDaoDate.Text = "道曆";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(212, 26);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 22);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "時間";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 59);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 22);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "經手人";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 28);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 22);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "收據編號";
+            // 
+            // txtOperator
+            // 
+            this.txtOperator.Location = new System.Drawing.Point(87, 56);
+            this.txtOperator.Name = "txtOperator";
+            this.txtOperator.Size = new System.Drawing.Size(119, 30);
+            this.txtOperator.TabIndex = 5;
+            this.txtOperator.TextChanged += new System.EventHandler(this.Input_TextChanged);
+            // 
+            // txtReceiptNo
+            // 
+            this.txtReceiptNo.Location = new System.Drawing.Point(87, 20);
+            this.txtReceiptNo.Name = "txtReceiptNo";
+            this.txtReceiptNo.Size = new System.Drawing.Size(119, 30);
+            this.txtReceiptNo.TabIndex = 4;
+            this.txtReceiptNo.TextChanged += new System.EventHandler(this.Input_TextChanged);
             // 
             // grpDonor
             // 
@@ -97,74 +149,28 @@
             this.grpDonor.Location = new System.Drawing.Point(3, 125);
             this.grpDonor.Name = "grpDonor";
             this.grpDonor.Padding = new System.Windows.Forms.Padding(5);
-            this.grpDonor.Size = new System.Drawing.Size(396, 133);
+            this.grpDonor.Size = new System.Drawing.Size(395, 133);
             this.grpDonor.TabIndex = 1;
             this.grpDonor.TabStop = false;
             this.grpDonor.Text = "信徒資料";
             // 
-            // grpItems
+            // label5
             // 
-            this.grpItems.Controls.Add(this.dgvItems);
-            this.grpItems.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grpItems.Location = new System.Drawing.Point(3, 264);
-            this.grpItems.Name = "grpItems";
-            this.grpItems.Padding = new System.Windows.Forms.Padding(5);
-            this.grpItems.Size = new System.Drawing.Size(396, 387);
-            this.grpItems.TabIndex = 2;
-            this.grpItems.TabStop = false;
-            this.grpItems.Text = "功德項目";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(9, 68);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 22);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "地址";
             // 
-            // grpAmount
+            // label4
             // 
-            this.grpAmount.Controls.Add(this.label8);
-            this.grpAmount.Controls.Add(this.lblChineseMoney);
-            this.grpAmount.Controls.Add(this.lblTotal);
-            this.grpAmount.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grpAmount.Location = new System.Drawing.Point(5, 659);
-            this.grpAmount.Margin = new System.Windows.Forms.Padding(5);
-            this.grpAmount.Name = "grpAmount";
-            this.grpAmount.Size = new System.Drawing.Size(392, 77);
-            this.grpAmount.TabIndex = 3;
-            this.grpAmount.TabStop = false;
-            this.grpAmount.Text = "金額資訊";
-            // 
-            // grpAction
-            // 
-            this.grpAction.Controls.Add(this.btnPrint);
-            this.grpAction.Controls.Add(this.btnPreview);
-            this.grpAction.Controls.Add(this.btnClear);
-            this.grpAction.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grpAction.Location = new System.Drawing.Point(5, 746);
-            this.grpAction.Margin = new System.Windows.Forms.Padding(5);
-            this.grpAction.Name = "grpAction";
-            this.grpAction.Size = new System.Drawing.Size(392, 123);
-            this.grpAction.TabIndex = 3;
-            this.grpAction.TabStop = false;
-            this.grpAction.Text = "功能";
-            // 
-            // txtReceiptNo
-            // 
-            this.txtReceiptNo.Location = new System.Drawing.Point(87, 20);
-            this.txtReceiptNo.Name = "txtReceiptNo";
-            this.txtReceiptNo.Size = new System.Drawing.Size(119, 30);
-            this.txtReceiptNo.TabIndex = 4;
-            this.txtReceiptNo.TextChanged += new System.EventHandler(this.Input_TextChanged);
-            // 
-            // txtOperator
-            // 
-            this.txtOperator.Location = new System.Drawing.Point(87, 56);
-            this.txtOperator.Name = "txtOperator";
-            this.txtOperator.Size = new System.Drawing.Size(119, 30);
-            this.txtOperator.TabIndex = 5;
-            this.txtOperator.TextChanged += new System.EventHandler(this.Input_TextChanged);
-            // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(59, 25);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(119, 30);
-            this.txtName.TabIndex = 5;
-            this.txtName.TextChanged += new System.EventHandler(this.Input_TextChanged);
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(9, 28);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(44, 22);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "姓名";
             // 
             // txtAddress
             // 
@@ -175,12 +181,32 @@
             this.txtAddress.TabIndex = 6;
             this.txtAddress.TextChanged += new System.EventHandler(this.Input_TextChanged);
             // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(59, 25);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(119, 30);
+            this.txtName.TabIndex = 5;
+            this.txtName.TextChanged += new System.EventHandler(this.Input_TextChanged);
+            // 
+            // grpItems
+            // 
+            this.grpItems.Controls.Add(this.dgvItems);
+            this.grpItems.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grpItems.Location = new System.Drawing.Point(3, 264);
+            this.grpItems.Name = "grpItems";
+            this.grpItems.Padding = new System.Windows.Forms.Padding(5);
+            this.grpItems.Size = new System.Drawing.Size(395, 387);
+            this.grpItems.TabIndex = 2;
+            this.grpItems.TabStop = false;
+            this.grpItems.Text = "功德項目";
+            // 
             // dgvItems
             // 
             this.dgvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2});
+            this.colItem,
+            this.colAmount});
             this.dgvItems.Location = new System.Drawing.Point(13, 31);
             this.dgvItems.Name = "dgvItems";
             this.dgvItems.RowHeadersWidth = 51;
@@ -188,28 +214,28 @@
             this.dgvItems.Size = new System.Drawing.Size(305, 330);
             this.dgvItems.TabIndex = 0;
             // 
-            // Column1
+            // grpAmount
             // 
-            this.Column1.HeaderText = "功德項目";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 125;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "金額";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 125;
+            this.grpAmount.Controls.Add(this.lblTotal);
+            this.grpAmount.Controls.Add(this.lblChineseMoney);
+            this.grpAmount.Controls.Add(this.lbl);
+            this.grpAmount.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grpAmount.Location = new System.Drawing.Point(5, 659);
+            this.grpAmount.Margin = new System.Windows.Forms.Padding(5);
+            this.grpAmount.Name = "grpAmount";
+            this.grpAmount.Size = new System.Drawing.Size(391, 77);
+            this.grpAmount.TabIndex = 3;
+            this.grpAmount.TabStop = false;
+            this.grpAmount.Text = "金額資訊";
             // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(8, 26);
+            this.lblTotal.Location = new System.Drawing.Point(87, 26);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(73, 22);
-            this.lblTotal.TabIndex = 0;
-            this.lblTotal.Text = "總金額 : ";
+            this.lblTotal.Size = new System.Drawing.Size(37, 22);
+            this.lblTotal.TabIndex = 2;
+            this.lblTotal.Text = "0元";
             // 
             // lblChineseMoney
             // 
@@ -220,23 +246,28 @@
             this.lblChineseMoney.TabIndex = 1;
             this.lblChineseMoney.Text = "零元整";
             // 
-            // btnClear
+            // lbl
             // 
-            this.btnClear.Location = new System.Drawing.Point(28, 43);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(84, 44);
-            this.btnClear.TabIndex = 0;
-            this.btnClear.Text = "清空";
-            this.btnClear.UseVisualStyleBackColor = true;
+            this.lbl.AutoSize = true;
+            this.lbl.Location = new System.Drawing.Point(8, 26);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(73, 22);
+            this.lbl.TabIndex = 0;
+            this.lbl.Text = "總金額 : ";
             // 
-            // btnPreview
+            // grpAction
             // 
-            this.btnPreview.Location = new System.Drawing.Point(132, 43);
-            this.btnPreview.Name = "btnPreview";
-            this.btnPreview.Size = new System.Drawing.Size(84, 44);
-            this.btnPreview.TabIndex = 1;
-            this.btnPreview.Text = "預覽";
-            this.btnPreview.UseVisualStyleBackColor = true;
+            this.grpAction.Controls.Add(this.btnPrint);
+            this.grpAction.Controls.Add(this.btnPreview);
+            this.grpAction.Controls.Add(this.btnClear);
+            this.grpAction.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grpAction.Location = new System.Drawing.Point(5, 746);
+            this.grpAction.Margin = new System.Windows.Forms.Padding(5);
+            this.grpAction.Name = "grpAction";
+            this.grpAction.Size = new System.Drawing.Size(391, 123);
+            this.grpAction.TabIndex = 3;
+            this.grpAction.TabStop = false;
+            this.grpAction.Text = "功能";
             // 
             // btnPrint
             // 
@@ -247,6 +278,24 @@
             this.btnPrint.Text = "列印";
             this.btnPrint.UseVisualStyleBackColor = true;
             // 
+            // btnPreview
+            // 
+            this.btnPreview.Location = new System.Drawing.Point(132, 43);
+            this.btnPreview.Name = "btnPreview";
+            this.btnPreview.Size = new System.Drawing.Size(84, 44);
+            this.btnPreview.TabIndex = 1;
+            this.btnPreview.Text = "預覽";
+            this.btnPreview.UseVisualStyleBackColor = true;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(28, 43);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(84, 44);
+            this.btnClear.TabIndex = 0;
+            this.btnClear.Text = "清空";
+            this.btnClear.UseVisualStyleBackColor = true;
+            // 
             // pnlPreview
             // 
             this.pnlPreview.BackColor = System.Drawing.Color.Gainsboro;
@@ -254,7 +303,7 @@
             this.pnlPreview.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPreview.Location = new System.Drawing.Point(0, 0);
             this.pnlPreview.Name = "pnlPreview";
-            this.pnlPreview.Size = new System.Drawing.Size(684, 874);
+            this.pnlPreview.Size = new System.Drawing.Size(685, 874);
             this.pnlPreview.TabIndex = 4;
             // 
             // label1
@@ -280,7 +329,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.pnlPreview);
             this.splitContainer1.Size = new System.Drawing.Size(1090, 874);
-            this.splitContainer1.SplitterDistance = 402;
+            this.splitContainer1.SplitterDistance = 401;
             this.splitContainer1.TabIndex = 5;
             // 
             // tableLayoutPanel1
@@ -301,71 +350,22 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(402, 874);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(401, 874);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
-            // label2
+            // colItem
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 22);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "收據編號";
+            this.colItem.HeaderText = "功德項目";
+            this.colItem.MinimumWidth = 6;
+            this.colItem.Name = "colItem";
+            this.colItem.Width = 125;
             // 
-            // label3
+            // colAmount
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 59);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 22);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "經手人";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 28);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 22);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "姓名";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 68);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 22);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "地址";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(212, 26);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 22);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "時間";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(212, 59);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 22);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "道曆";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(87, 26);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(37, 22);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "0元";
+            this.colAmount.HeaderText = "金額";
+            this.colAmount.MinimumWidth = 6;
+            this.colAmount.Name = "colAmount";
+            this.colAmount.Width = 125;
             // 
             // MainForm
             // 
@@ -386,10 +386,10 @@
             this.grpDonor.ResumeLayout(false);
             this.grpDonor.PerformLayout();
             this.grpItems.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
             this.grpAmount.ResumeLayout(false);
             this.grpAmount.PerformLayout();
             this.grpAction.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
             this.pnlPreview.ResumeLayout(false);
             this.pnlPreview.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -413,10 +413,8 @@
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.DataGridView dgvItems;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.Label lblChineseMoney;
-        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Label lbl;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Button btnPreview;
         private System.Windows.Forms.Button btnClear;
@@ -426,11 +424,13 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblDaoDate;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAmount;
     }
 }
 

@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TempleReceipt.Services
+﻿namespace TempleReceipt.Services
 {
-    internal class ChineseMoneyService
+    /// <summary>
+    /// 中文大寫金額轉換
+    /// </summary>
+    public class ChineseMoneyService
     {
+        public string Convert(decimal amount)
+        {
+            return string.Empty;
+        }
     }
 }

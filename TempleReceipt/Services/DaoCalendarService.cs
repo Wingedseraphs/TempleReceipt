@@ -1,12 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TempleReceipt.Services
 {
-    internal class DaoCalendarService
+    /// <summary>
+    /// 道曆轉換
+    /// </summary>
+    public class DaoCalendarService
     {
+        public string GetDaoCalendar(DateTime dateTime)
+        {
+            return string.Empty;
+        }
     }
 }
