@@ -35,7 +35,7 @@ namespace TempleReceipt.Services
             if (number == 0)
                 return ChineseNumbers[0].ToString();
 
-            List<string> sections = new List<string>();
+            List<NumberSection> sections = new List<NumberSection>();
 
             int sectionIndex = 0;
 
@@ -45,21 +45,31 @@ namespace TempleReceipt.Services
 
                 if (section > 0)
                 {
-                    string text = ConvertSection(section);
-
-                    if (sectionIndex > 0)
-                    {
-                        text += SectionUnits[sectionIndex];
-                    }
-
-                    sections.Insert(0, text);
+                    sections.Insert(0,
+                        new NumberSection
+                        {
+                            Value = section,
+                            Index = sectionIndex
+                        });
                 }
 
                 number /= 10000;
                 sectionIndex++;
             }
 
-            return string.Concat(sections);
+            StringBuilder result = new StringBuilder();
+
+            foreach (NumberSection section in sections)
+            {
+                result.Append(ConvertSection(section.Value));
+
+                if (section.Index > 0)
+                {
+                    result.Append(SectionUnits[section.Index]);
+                }
+            }
+
+            return result.ToString();
         }
         /// <summary>
         /// 將四位數轉為中文大寫。
@@ -111,6 +121,24 @@ namespace TempleReceipt.Services
         private bool NeedZero(int section)
         {
             return section > 0 && section < 1000;
+        }
+        /// <summary>
+        /// 四位數區段
+        /// </summary>
+        private class NumberSection
+        {
+            /// <summary>
+            /// 區段數值 (0~9999)
+            /// </summary>
+            public int Value { get; set; }
+
+            /// <summary>
+            /// 區段索引
+            /// 0=個位
+            /// 1=萬
+            /// 2=億
+            /// </summary>
+            public int Index { get; set; }
         }
     }
 }
