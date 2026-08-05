@@ -43,15 +43,11 @@ namespace TempleReceipt.Services
             {
                 int section = (int)(number % 10000);
 
-                if (section > 0)
-                {
-                    sections.Insert(0,
-                        new NumberSection
-                        {
-                            Value = section,
-                            Index = sectionIndex
-                        });
-                }
+                sections.Insert(0, new NumberSection
+                    {
+                        Value = section,
+                        Index = sectionIndex
+                    });
 
                 number /= 10000;
                 sectionIndex++;
@@ -63,11 +59,12 @@ namespace TempleReceipt.Services
             {
                 NumberSection current = sections[i];
 
-                result.Append(ConvertSection(current.Value));
-
-                if (current.Index > 0)
+                if (!current.IsEmpty)
                 {
-                    result.Append(SectionUnits[current.Index]);
+                    result.Append(ConvertSection(current.Value));
+
+                    if (current.Index > 0)
+                        result.Append(SectionUnits[current.Index]);
                 }
 
                 NumberSection next =
@@ -135,9 +132,22 @@ namespace TempleReceipt.Services
             if (next == null)
                 return false;
 
-            return next.Value > 0 &&
-                   next.Value < 1000;
+            // 下一段沒有值
+            if (next.IsEmpty)
+                return false;
+
+            // 下一段不足四位
+            if (next.Value < 1000)
+                return true;
+
+            // 目前區段不足四位
+            if (current.Value < 1000)
+                return true;
+
+            return false;
         }
+
+        
         /// <summary>
         /// 四位數區段
         /// </summary>
@@ -155,6 +165,17 @@ namespace TempleReceipt.Services
             /// 2=億
             /// </summary>
             public int Index { get; set; }
+
+            /// <summary>
+            /// 是否需要在前方補零、為空白區段(0000)
+            /// </summary>
+            public bool IsEmpty
+            {
+                get
+                {
+                    return Value == 0;
+                }
+            }
         }
     }
 }

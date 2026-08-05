@@ -13,10 +13,10 @@ namespace TempleReceipt.Tests
 
             long[] values =
             {
-                12345,
-                56789,
-                100000,
+                10001,
                 10010,
+                100001,
+                1001001,
                 123456789
             };
 
