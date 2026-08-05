@@ -6,16 +6,19 @@ using TempleReceipt.Services;
 
 namespace TempleReceipt.Controls
 {
+
     /// <summary>繪製直式中一刀（14 x 21.5 公分）感謝狀。</summary>
     public static class ReceiptDocumentRenderer
     {
+        private const float RenderOffsetX = -10f;
+        private const float RenderOffsetY = -2f;
         public const float PageWidth = 1400f;
         public const float PageHeight = 2150f;
 
         private const float SafeMargin = 100f;
         private const float ContentLeft = 135f;
         private const float ContentRight = 1265f;
-        private const float ContentTop = 470f;
+        private const float ContentTop = 460f;
         private const float DetailBottom = 1450f;
         private const float FooterTop = 1590f;
         private const string TempleAddress = "地址:基隆市中正區觀海街八號四樓";
@@ -39,7 +42,9 @@ namespace TempleReceipt.Controls
             GraphicsState state = graphics.Save();
             float scale = pageBounds.Width / PageWidth;
 
-            graphics.TranslateTransform(pageBounds.X, pageBounds.Y);
+            graphics.TranslateTransform(
+                pageBounds.X + RenderOffsetX,
+                pageBounds.Y + RenderOffsetY);
             graphics.ScaleTransform(scale, scale);
             graphics.SmoothingMode = SmoothingMode.AntiAlias;
             graphics.TextRenderingHint =
@@ -87,7 +92,7 @@ namespace TempleReceipt.Controls
 
                 float personHeaderHeight = 48f * rowScale;
                 float itemRowHeight = 50f * rowScale;
-                float subtotalHeight = 50f * rowScale;
+                float subtotalHeight = 90f * rowScale;
                 float y = ContentTop;
 
                 foreach (ReceiptPerson person in receipt.Persons)

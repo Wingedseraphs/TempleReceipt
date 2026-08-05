@@ -61,7 +61,6 @@ namespace TempleReceipt.Services
                     ReceiptDocumentRenderer.PageWidth,
                     ReceiptDocumentRenderer.PageHeight), receipt);
             }
-
             graphics.Restore(state);
         }
     }
