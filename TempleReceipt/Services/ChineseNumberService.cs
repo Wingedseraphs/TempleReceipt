@@ -48,7 +48,7 @@ namespace TempleReceipt.Services
 
             for (int position = 3; position >= 0; position--)
             {
-                int unitValue = (int)Math.Pow(10, position);
+                int unitValue = UnitValues[3 - position];
 
                 int digit = number / unitValue;
 
@@ -72,6 +72,21 @@ namespace TempleReceipt.Services
             }
 
             return result.ToString();
+        }
+
+        private static readonly int[] UnitValues =
+        {
+            1000,
+            100,
+            10,
+            1
+        };
+        /// <summary>
+        /// 判斷區段之間是否需要補「零」。
+        /// </summary>
+        private bool NeedZero(int section)
+        {
+            return section > 0 && section < 1000;
         }
     }
 }
