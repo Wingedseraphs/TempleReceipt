@@ -30,12 +30,18 @@ namespace TempleReceipt.Services
         {
             long value = (long)Math.Round(amount);
 
+            if (value < 0 || value > 999999999)
+                throw new ArgumentOutOfRangeException(nameof(amount));
+
             if (value == 0)
                 return "零元整";
 
             StringBuilder sb = new StringBuilder();
 
             int sectionIndex = 0;
+            bool hasLowerSection = false;
+            bool hasSkippedSection = false;
+            int nearestLowerSection = 0;
 
             while (value > 0)
             {
@@ -48,24 +54,30 @@ namespace TempleReceipt.Services
                     if (sectionIndex > 0)
                         partChinese += Section[sectionIndex];
 
+                    // 低位區段不足四位，或中間略過完整的 0000 區段時，
+                    // 需要在目前區段與低位區段之間補一個「零」。
+                    if (hasLowerSection &&
+                        (hasSkippedSection || nearestLowerSection < 1000))
+                    {
+                        partChinese += "零";
+                    }
+
                     sb.Insert(0, partChinese);
+
+                    hasLowerSection = true;
+                    hasSkippedSection = false;
+                    nearestLowerSection = part;
+                }
+                else if (hasLowerSection)
+                {
+                    hasSkippedSection = true;
                 }
 
                 value /= 10000;
                 sectionIndex++;
             }
 
-            string result = sb.ToString();
-
-            while (result.Contains("零零"))
-                result = result.Replace("零零", "零");
-
-            result = result.Replace("零萬", "萬");
-            result = result.Replace("零億", "億");
-            result = result.Replace("億萬", "億");
-            result = result.TrimEnd('零');
-
-            return result + "元整";
+            return sb.ToString() + "元整";
         }
 
         /// <summary>

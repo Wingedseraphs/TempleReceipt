@@ -51,6 +51,7 @@
     <Compile Include="Controls\ReceiptPreviewControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Controls\ReceiptDocumentRenderer.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +65,7 @@
     <Compile Include="Models\DonationItem.cs" />
     <Compile Include="Models\Receipt.cs" />
     <Compile Include="Models\ReceiptItem.cs" />
+    <Compile Include="Models\ReceiptPerson.cs" />
     <Compile Include="Models\ReceiptSummary.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

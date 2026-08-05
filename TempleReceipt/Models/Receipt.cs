@@ -15,24 +15,22 @@ namespace TempleReceipt.Models
         /// <summary>經手人</summary>
         public string Operator { get; set; }
 
-        /// <summary>姓名</summary>
-        public string Name { get; set; }
-
-        /// <summary>地址</summary>
+        /// <summary>本張收據共用地址</summary>
         public string Address { get; set; }
 
         /// <summary>建立時間</summary>
-        public DateTime CreateTime { get; set; }
+        public DateTime CreateTime { get; set; } = DateTime.Now;
 
-        /// <summary>功德項目</summary>
-        public List<ReceiptItem> Items { get; set; } = new List<ReceiptItem>();
+        /// <summary>同一張收據上的捐款人</summary>
+        public List<ReceiptPerson> Persons { get; set; } =
+            new List<ReceiptPerson>();
 
         /// <summary>總金額</summary>
         public decimal TotalAmount
         {
             get
             {
-                return Items.Sum(x => x.Amount);
+                return Persons.Sum(x => x.TotalAmount);
             }
         }
     }

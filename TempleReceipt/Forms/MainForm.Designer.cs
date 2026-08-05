@@ -35,11 +35,18 @@
             this.lblReceiptNoTitle = new System.Windows.Forms.Label();
             this.txtOperator = new System.Windows.Forms.TextBox();
             this.txtReceiptNo = new System.Windows.Forms.TextBox();
-            this.grpDonor = new System.Windows.Forms.GroupBox();
             this.lblAddressTitle = new System.Windows.Forms.Label();
-            this.lblNameTitle = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
+            this.dtpReceiptDate = new System.Windows.Forms.DateTimePicker();
+            this.grpDonor = new System.Windows.Forms.GroupBox();
+            this.lblNameTitle = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.lstPersons = new System.Windows.Forms.ListBox();
+            this.btnAddPerson = new System.Windows.Forms.Button();
+            this.btnRemovePerson = new System.Windows.Forms.Button();
+            this.lblPersonTotalTitle = new System.Windows.Forms.Label();
+            this.lblPersonTotal = new System.Windows.Forms.Label();
+            this.lblPersonChineseMoney = new System.Windows.Forms.Label();
             this.grpItems = new System.Windows.Forms.GroupBox();
             this.btnAddItem = new System.Windows.Forms.Button();
             this.cboDonationItem = new System.Windows.Forms.ComboBox();
@@ -57,6 +64,7 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.pnlPreview = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.receiptPreview = new TempleReceipt.Controls.ReceiptPreviewControl();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.grpReceipt.SuspendLayout();
@@ -81,6 +89,9 @@
             this.grpReceipt.Controls.Add(this.lblReceiptNoTitle);
             this.grpReceipt.Controls.Add(this.txtOperator);
             this.grpReceipt.Controls.Add(this.txtReceiptNo);
+            this.grpReceipt.Controls.Add(this.lblAddressTitle);
+            this.grpReceipt.Controls.Add(this.txtAddress);
+            this.grpReceipt.Controls.Add(this.dtpReceiptDate);
             this.grpReceipt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpReceipt.Location = new System.Drawing.Point(5, 5);
             this.grpReceipt.Margin = new System.Windows.Forms.Padding(5);
@@ -107,6 +118,7 @@
             this.lalTimeNow.Size = new System.Drawing.Size(44, 22);
             this.lalTimeNow.TabIndex = 8;
             this.lalTimeNow.Text = "時間";
+            this.lalTimeNow.Visible = false;
             // 
             // lblOperatorTitle
             // 
@@ -141,13 +153,44 @@
             this.txtReceiptNo.Size = new System.Drawing.Size(119, 30);
             this.txtReceiptNo.TabIndex = 4;
             this.txtReceiptNo.TextChanged += new System.EventHandler(this.Input_TextChanged);
+            //
+            // lblAddressTitle
+            //
+            this.lblAddressTitle.AutoSize = true;
+            this.lblAddressTitle.Location = new System.Drawing.Point(3, 92);
+            this.lblAddressTitle.Name = "lblAddressTitle";
+            this.lblAddressTitle.Size = new System.Drawing.Size(44, 22);
+            this.lblAddressTitle.TabIndex = 10;
+            this.lblAddressTitle.Text = "地址";
+            //
+            // txtAddress
+            //
+            this.txtAddress.Location = new System.Drawing.Point(87, 89);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(266, 30);
+            this.txtAddress.TabIndex = 11;
+            this.txtAddress.TextChanged += new System.EventHandler(this.Input_TextChanged);
+            //
+            // dtpReceiptDate
+            //
+            this.dtpReceiptDate.CustomFormat = "yyyy/MM/dd";
+            this.dtpReceiptDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpReceiptDate.Location = new System.Drawing.Point(212, 20);
+            this.dtpReceiptDate.Name = "dtpReceiptDate";
+            this.dtpReceiptDate.Size = new System.Drawing.Size(141, 30);
+            this.dtpReceiptDate.TabIndex = 12;
+            this.dtpReceiptDate.ValueChanged += new System.EventHandler(this.dtpReceiptDate_ValueChanged);
             // 
             // grpDonor
             // 
-            this.grpDonor.Controls.Add(this.lblAddressTitle);
             this.grpDonor.Controls.Add(this.lblNameTitle);
-            this.grpDonor.Controls.Add(this.txtAddress);
             this.grpDonor.Controls.Add(this.txtName);
+            this.grpDonor.Controls.Add(this.lstPersons);
+            this.grpDonor.Controls.Add(this.btnAddPerson);
+            this.grpDonor.Controls.Add(this.btnRemovePerson);
+            this.grpDonor.Controls.Add(this.lblPersonTotalTitle);
+            this.grpDonor.Controls.Add(this.lblPersonTotal);
+            this.grpDonor.Controls.Add(this.lblPersonChineseMoney);
             this.grpDonor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpDonor.Location = new System.Drawing.Point(3, 125);
             this.grpDonor.Name = "grpDonor";
@@ -155,16 +198,7 @@
             this.grpDonor.Size = new System.Drawing.Size(395, 133);
             this.grpDonor.TabIndex = 1;
             this.grpDonor.TabStop = false;
-            this.grpDonor.Text = "信徒資料";
-            // 
-            // lblAddressTitle
-            // 
-            this.lblAddressTitle.AutoSize = true;
-            this.lblAddressTitle.Location = new System.Drawing.Point(9, 68);
-            this.lblAddressTitle.Name = "lblAddressTitle";
-            this.lblAddressTitle.Size = new System.Drawing.Size(44, 22);
-            this.lblAddressTitle.TabIndex = 8;
-            this.lblAddressTitle.Text = "地址";
+            this.grpDonor.Text = "捐款人資料";
             // 
             // lblNameTitle
             // 
@@ -173,16 +207,7 @@
             this.lblNameTitle.Name = "lblNameTitle";
             this.lblNameTitle.Size = new System.Drawing.Size(44, 22);
             this.lblNameTitle.TabIndex = 7;
-            this.lblNameTitle.Text = "姓名";
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.Location = new System.Drawing.Point(59, 65);
-            this.txtAddress.Multiline = true;
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(294, 60);
-            this.txtAddress.TabIndex = 6;
-            this.txtAddress.TextChanged += new System.EventHandler(this.Input_TextChanged);
+            this.lblNameTitle.Text = "捐款人";
             // 
             // txtName
             // 
@@ -191,6 +216,63 @@
             this.txtName.Size = new System.Drawing.Size(119, 30);
             this.txtName.TabIndex = 5;
             this.txtName.TextChanged += new System.EventHandler(this.Input_TextChanged);
+            //
+            // lstPersons
+            //
+            this.lstPersons.FormattingEnabled = true;
+            this.lstPersons.ItemHeight = 22;
+            this.lstPersons.Location = new System.Drawing.Point(9, 65);
+            this.lstPersons.Name = "lstPersons";
+            this.lstPersons.Size = new System.Drawing.Size(344, 48);
+            this.lstPersons.TabIndex = 9;
+            this.lstPersons.SelectedIndexChanged += new System.EventHandler(this.lstPersons_SelectedIndexChanged);
+            //
+            // btnAddPerson
+            //
+            this.btnAddPerson.Location = new System.Drawing.Point(187, 25);
+            this.btnAddPerson.Name = "btnAddPerson";
+            this.btnAddPerson.Size = new System.Drawing.Size(80, 30);
+            this.btnAddPerson.TabIndex = 10;
+            this.btnAddPerson.Text = "新增人員";
+            this.btnAddPerson.UseVisualStyleBackColor = true;
+            this.btnAddPerson.Click += new System.EventHandler(this.btnAddPerson_Click);
+            //
+            // btnRemovePerson
+            //
+            this.btnRemovePerson.Location = new System.Drawing.Point(273, 25);
+            this.btnRemovePerson.Name = "btnRemovePerson";
+            this.btnRemovePerson.Size = new System.Drawing.Size(80, 30);
+            this.btnRemovePerson.TabIndex = 11;
+            this.btnRemovePerson.Text = "刪除人員";
+            this.btnRemovePerson.UseVisualStyleBackColor = true;
+            this.btnRemovePerson.Click += new System.EventHandler(this.btnRemovePerson_Click);
+            //
+            // lblPersonTotalTitle
+            //
+            this.lblPersonTotalTitle.AutoSize = true;
+            this.lblPersonTotalTitle.Location = new System.Drawing.Point(9, 119);
+            this.lblPersonTotalTitle.Name = "lblPersonTotalTitle";
+            this.lblPersonTotalTitle.Size = new System.Drawing.Size(78, 22);
+            this.lblPersonTotalTitle.TabIndex = 12;
+            this.lblPersonTotalTitle.Text = "個人小計";
+            //
+            // lblPersonTotal
+            //
+            this.lblPersonTotal.AutoSize = true;
+            this.lblPersonTotal.Location = new System.Drawing.Point(93, 119);
+            this.lblPersonTotal.Name = "lblPersonTotal";
+            this.lblPersonTotal.Size = new System.Drawing.Size(37, 22);
+            this.lblPersonTotal.TabIndex = 13;
+            this.lblPersonTotal.Text = "0 元";
+            //
+            // lblPersonChineseMoney
+            //
+            this.lblPersonChineseMoney.AutoSize = true;
+            this.lblPersonChineseMoney.Location = new System.Drawing.Point(9, 146);
+            this.lblPersonChineseMoney.Name = "lblPersonChineseMoney";
+            this.lblPersonChineseMoney.Size = new System.Drawing.Size(61, 22);
+            this.lblPersonChineseMoney.TabIndex = 14;
+            this.lblPersonChineseMoney.Text = "零元整";
             // 
             // grpItems
             // 
@@ -333,6 +415,7 @@
             this.btnPrint.TabIndex = 2;
             this.btnPrint.Text = "列印";
             this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnPreview
             // 
@@ -342,6 +425,7 @@
             this.btnPreview.TabIndex = 1;
             this.btnPreview.Text = "預覽";
             this.btnPreview.UseVisualStyleBackColor = true;
+            this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
             // 
             // btnClear
             // 
@@ -351,11 +435,13 @@
             this.btnClear.TabIndex = 0;
             this.btnClear.Text = "清空";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // pnlPreview
             // 
             this.pnlPreview.BackColor = System.Drawing.Color.Gainsboro;
             this.pnlPreview.Controls.Add(this.label1);
+            this.pnlPreview.Controls.Add(this.receiptPreview);
             this.pnlPreview.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPreview.Location = new System.Drawing.Point(0, 0);
             this.pnlPreview.Name = "pnlPreview";
@@ -370,6 +456,15 @@
             this.label1.Size = new System.Drawing.Size(78, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "收據預覽";
+            //
+            // receiptPreview
+            //
+            this.receiptPreview.BackColor = System.Drawing.Color.Gainsboro;
+            this.receiptPreview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.receiptPreview.Location = new System.Drawing.Point(0, 0);
+            this.receiptPreview.Name = "receiptPreview";
+            this.receiptPreview.Size = new System.Drawing.Size(685, 874);
+            this.receiptPreview.TabIndex = 1;
             // 
             // splitContainer1
             // 
@@ -401,9 +496,9 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(401, 874);
@@ -453,8 +548,16 @@
         private System.Windows.Forms.GroupBox grpAction;
         private System.Windows.Forms.TextBox txtOperator;
         private System.Windows.Forms.TextBox txtReceiptNo;
+        private System.Windows.Forms.Label lblAddressTitle;
         private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.DateTimePicker dtpReceiptDate;
         private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.ListBox lstPersons;
+        private System.Windows.Forms.Button btnAddPerson;
+        private System.Windows.Forms.Button btnRemovePerson;
+        private System.Windows.Forms.Label lblPersonTotalTitle;
+        private System.Windows.Forms.Label lblPersonTotal;
+        private System.Windows.Forms.Label lblPersonChineseMoney;
         private System.Windows.Forms.DataGridView dgvItems;
         private System.Windows.Forms.Label lblChineseMoney;
         private System.Windows.Forms.Label lblTotalTitle;
@@ -463,13 +566,13 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Panel pnlPreview;
         private System.Windows.Forms.Label label1;
+        private TempleReceipt.Controls.ReceiptPreviewControl receiptPreview;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label lblOperatorTitle;
         private System.Windows.Forms.Label lblReceiptNoTitle;
         private System.Windows.Forms.Label lblDaoDate;
         private System.Windows.Forms.Label lalTimeNow;
-        private System.Windows.Forms.Label lblAddressTitle;
         private System.Windows.Forms.Label lblNameTitle;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Button btnAddItem;
