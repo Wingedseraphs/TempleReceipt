@@ -16,7 +16,7 @@ namespace TempleReceipt.Tests
                 12345,
                 56789,
                 100000,
-                100010,
+                10010,
                 123456789
             };
 

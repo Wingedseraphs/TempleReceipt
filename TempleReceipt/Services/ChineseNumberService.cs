@@ -59,13 +59,25 @@ namespace TempleReceipt.Services
 
             StringBuilder result = new StringBuilder();
 
-            foreach (NumberSection section in sections)
+            for (int i = 0; i < sections.Count; i++)
             {
-                result.Append(ConvertSection(section.Value));
+                NumberSection current = sections[i];
 
-                if (section.Index > 0)
+                result.Append(ConvertSection(current.Value));
+
+                if (current.Index > 0)
                 {
-                    result.Append(SectionUnits[section.Index]);
+                    result.Append(SectionUnits[current.Index]);
+                }
+
+                NumberSection next =
+                    i + 1 < sections.Count
+                        ? sections[i + 1]
+                        : null;
+
+                if (NeedZero(current, next))
+                {
+                    result.Append("零");
                 }
             }
 
@@ -118,14 +130,18 @@ namespace TempleReceipt.Services
         /// <summary>
         /// 判斷區段之間是否需要補「零」。
         /// </summary>
-        private bool NeedZero(int section)
+        private static bool NeedZero(NumberSection current, NumberSection next)
         {
-            return section > 0 && section < 1000;
+            if (next == null)
+                return false;
+
+            return next.Value > 0 &&
+                   next.Value < 1000;
         }
         /// <summary>
         /// 四位數區段
         /// </summary>
-        private class NumberSection
+        private sealed class NumberSection
         {
             /// <summary>
             /// 區段數值 (0~9999)
