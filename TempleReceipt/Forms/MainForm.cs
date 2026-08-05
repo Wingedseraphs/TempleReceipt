@@ -18,7 +18,6 @@ namespace TempleReceipt.Forms
         /// 目前正在編輯的收據
         /// </summary>
         private Receipt _receipt;
-        //private ReceiptService _receiptService = new ReceiptService();
         private readonly ChineseMoneyService _moneyService = new ChineseMoneyService();
         private readonly DonationItemService _donationService = new DonationItemService();
         public MainForm()
