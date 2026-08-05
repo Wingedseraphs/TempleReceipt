@@ -35,7 +35,7 @@ namespace TempleReceipt.Services
             if (number == 0)
                 return ChineseNumbers[0].ToString();
 
-            StringBuilder result = new StringBuilder();
+            List<string> sections = new List<string>();
 
             int sectionIndex = 0;
 
@@ -43,24 +43,23 @@ namespace TempleReceipt.Services
             {
                 int section = (int)(number % 10000);
 
-                number /= 10000;
-
                 if (section > 0)
                 {
-                    string sectionText = ConvertSection(section);
+                    string text = ConvertSection(section);
 
                     if (sectionIndex > 0)
                     {
-                        sectionText += SectionUnits[sectionIndex];
+                        text += SectionUnits[sectionIndex];
                     }
 
-                    result.Insert(0, sectionText);
+                    sections.Insert(0, text);
                 }
 
+                number /= 10000;
                 sectionIndex++;
             }
 
-            return result.ToString();
+            return string.Concat(sections);
         }
         /// <summary>
         /// 將四位數轉為中文大寫。
