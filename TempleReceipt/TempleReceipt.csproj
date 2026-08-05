@@ -59,6 +59,7 @@
     </Compile>
     <Compile Include="Helpers\EscPosHelper.cs" />
     <Compile Include="Helpers\PrinterHelper.cs" />
+    <Compile Include="Tests\TestHelper.cs" />
     <Compile Include="Models\DonationItem.cs" />
     <Compile Include="Models\Receipt.cs" />
     <Compile Include="Models\ReceiptItem.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ChineseMoneyService.cs" />
+    <Compile Include="Services\ChineseNumberService.cs" />
     <Compile Include="Services\DaoCalendarService.cs" />
     <Compile Include="Services\DateTimeService.cs" />
     <Compile Include="Services\DonationItemService.cs" />

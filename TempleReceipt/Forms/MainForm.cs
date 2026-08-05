@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TempleReceipt.Models;
 using TempleReceipt.Services;
+using TempleReceipt.Tests;
 
 namespace TempleReceipt.Forms
 {
@@ -23,7 +24,7 @@ namespace TempleReceipt.Forms
         public MainForm()
         {
             InitializeComponent();
-
+                
             InitializeReceipt();
         }
         private void MainForm_Load(object sender, EventArgs e)
@@ -31,6 +32,8 @@ namespace TempleReceipt.Forms
             InitializeDataGridView();
 
             LoadDonationItems();
+
+            ChineseNumberTests.TestChineseNumber();
         }
         private void InitializeDataGridView()
         {

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace TempleReceipt.Services
 {
@@ -7,5 +9,69 @@ namespace TempleReceipt.Services
     /// </summary>
     public class ChineseNumberService
     {
+        private static readonly string ChineseNumbers = "零壹貳參肆伍陸柒捌玖";
+
+        private static readonly string[] DigitUnits =
+        {
+            "", "拾", "佰", "仟"
+        };
+
+        private static readonly string[] SectionUnits =
+        {
+            "", "萬", "億"
+        };
+
+        /// <summary>
+        /// 將整數轉為中文大寫。
+        /// </summary>
+        public string Convert(long number)
+        {
+            if (number < 0)
+                throw new ArgumentOutOfRangeException(nameof(number));
+
+            if (number > 999999999)
+                throw new ArgumentOutOfRangeException(nameof(number));
+
+            if (number == 0)
+                return ChineseNumbers[0].ToString();
+
+            return ConvertSection((int)number);
+        }
+        /// <summary>
+        /// 將四位數轉為中文大寫。
+        /// </summary>
+        private string ConvertSection(int number)
+        {
+            StringBuilder result = new StringBuilder();
+
+            bool zero = false;
+
+            for (int position = 3; position >= 0; position--)
+            {
+                int unitValue = (int)Math.Pow(10, position);
+
+                int digit = number / unitValue;
+
+                number %= unitValue;
+
+                if (digit == 0)
+                {
+                    zero = result.Length > 0;
+                    continue;
+                }
+
+                if (zero)
+                {
+                    result.Append("零");
+                    zero = false;
+                }
+
+                result.Append(ChineseNumbers[digit]);
+
+                result.Append(DigitUnits[position]);
+            }
+
+            return result.ToString();
+        }
     }
 }
