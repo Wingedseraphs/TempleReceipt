@@ -59,7 +59,8 @@
     </Compile>
     <Compile Include="Helpers\EscPosHelper.cs" />
     <Compile Include="Helpers\PrinterHelper.cs" />
-    <Compile Include="Tests\TestHelper.cs" />
+    <Compile Include="Tests\ChineseMoneyTests.cs" />
+    <Compile Include="Tests\ChineseNumberTests.cs" />
     <Compile Include="Models\DonationItem.cs" />
     <Compile Include="Models\Receipt.cs" />
     <Compile Include="Models\ReceiptItem.cs" />
@@ -73,6 +74,8 @@
     <Compile Include="Services\DonationItemService.cs" />
     <Compile Include="Services\PrinterService.cs" />
     <Compile Include="Services\ReceiptService.cs" />
+    <Compile Include="Tests\DaoCalendarTests.cs" />
+    <Compile Include="Tests\PrinterTests.cs" />
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

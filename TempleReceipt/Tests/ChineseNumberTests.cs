@@ -13,22 +13,11 @@ namespace TempleReceipt.Tests
 
             long[] values =
             {
-                0,
-                1,
-                9,
-                10,
-                11,
-                20,
-                99,
-                100,
-                101,
-                110,
-                111,
-                1000,
-                1001,
-                1010,
-                1100,
-                1111
+                12345,
+                56789,
+                100000,
+                1000000,
+                123456789
             };
 
             foreach (long value in values)

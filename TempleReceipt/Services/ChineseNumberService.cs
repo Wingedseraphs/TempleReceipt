@@ -35,7 +35,32 @@ namespace TempleReceipt.Services
             if (number == 0)
                 return ChineseNumbers[0].ToString();
 
-            return ConvertSection((int)number);
+            StringBuilder result = new StringBuilder();
+
+            int sectionIndex = 0;
+
+            while (number > 0)
+            {
+                int section = (int)(number % 10000);
+
+                number /= 10000;
+
+                if (section > 0)
+                {
+                    string sectionText = ConvertSection(section);
+
+                    if (sectionIndex > 0)
+                    {
+                        sectionText += SectionUnits[sectionIndex];
+                    }
+
+                    result.Insert(0, sectionText);
+                }
+
+                sectionIndex++;
+            }
+
+            return result.ToString();
         }
         /// <summary>
         /// 將四位數轉為中文大寫。
