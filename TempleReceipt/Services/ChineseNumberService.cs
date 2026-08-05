@@ -35,24 +35,38 @@ namespace TempleReceipt.Services
             if (number == 0)
                 return ChineseNumbers[0].ToString();
 
+            List<NumberSection> sections = SplitSections(number);
+
+            return RenderSections(sections);
+        }
+        /// <summary>
+        /// 將數字拆成四位數區段。
+        /// </summary>
+        private List<NumberSection> SplitSections(long number)
+        {
             List<NumberSection> sections = new List<NumberSection>();
 
             int sectionIndex = 0;
 
             while (number > 0)
             {
-                int section = (int)(number % 10000);
-
                 sections.Insert(0, new NumberSection
-                    {
-                        Value = section,
-                        Index = sectionIndex
-                    });
+                {
+                    Value = (int)(number % 10000),
+                    Index = sectionIndex
+                });
 
                 number /= 10000;
                 sectionIndex++;
             }
 
+            return sections;
+        }
+        /// <summary>
+        /// 將區段組成中文數字。
+        /// </summary>
+        private string RenderSections(List<NumberSection> sections)
+        {
             StringBuilder result = new StringBuilder();
 
             for (int i = 0; i < sections.Count; i++)
@@ -64,7 +78,9 @@ namespace TempleReceipt.Services
                     result.Append(ConvertSection(current.Value));
 
                     if (current.Index > 0)
+                    {
                         result.Append(SectionUnits[current.Index]);
+                    }
                 }
 
                 NumberSection next =
