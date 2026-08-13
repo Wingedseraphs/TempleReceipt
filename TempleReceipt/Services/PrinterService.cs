@@ -35,7 +35,11 @@ namespace TempleReceipt.Services
                 dialog.UseEXDialog = true;
 
                 if (dialog.ShowDialog(owner) == DialogResult.OK)
+                {
+                    ReceiptImageService.SaveReceiptImage(receipt); 
                     document.Print();
+                }
+                
             }
         }
 

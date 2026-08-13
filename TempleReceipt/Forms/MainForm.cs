@@ -129,7 +129,7 @@ namespace TempleReceipt.Forms
 
             lstPersons.SelectedItem = person;
             _isBindingPerson = false;
-            RefreshSummary();
+            //RefreshSummary();
         }
 
         private void SaveBoundPerson()
